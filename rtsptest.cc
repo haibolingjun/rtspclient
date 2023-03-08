@@ -1,7 +1,3 @@
-// Copyright 2020 Fuzhou Rockchip Electronics Co., Ltd. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
 #include <assert.h>
 #include <fcntl.h>
 #include <pthread.h>
@@ -38,7 +34,7 @@ int main(int argc, char *argv[]) {
   signal(SIGSEGV, throw_segmentation_fault_exception);
 
 
-  std::string rtspPath("rtsp://");
+  std::string rtspPath("rtsp://");//set rtsp address
   const char *rtsppath = (rtspPath.c_str());
 
   RTSPSession *pRtsp = new RTSPSession;
@@ -50,7 +46,7 @@ int main(int argc, char *argv[]) {
 
   pRtsp->StartRTSPClient();
 
-  usleep(20000 * 1000);
+  usleep(200000 * 1000);
   pRtsp->StopRTSPClient();
   delete pRtsp;
   pRtsp = NULL;
